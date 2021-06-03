@@ -4,7 +4,7 @@ const Button = styled.button`
   width: inherit;
   height: inherit;
   background-color: #10c9c3;
-  font-family: 'Josefin Sans';
+  font-family: gothamPro;
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
@@ -23,7 +23,7 @@ const Button = styled.button`
 `;
 
 const BlueButton = (props) => {
-    return <Button {...props}>{props.content}</Button>
+    return <Button {...props}>{props.content || props.children}</Button>
 }
 
 export default BlueButton;

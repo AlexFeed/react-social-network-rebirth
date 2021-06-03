@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './ErrorComponent.module.scss';
+import s from '../ErrorComponents/ErrorComponents.module.scss';
 
 function ErrorComponent(props) {
     let hasError = props.meta.touched && props.meta.error;

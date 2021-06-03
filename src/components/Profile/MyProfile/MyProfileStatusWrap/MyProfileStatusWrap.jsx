@@ -4,13 +4,10 @@ import React from "react";
 
 const MyProfileStatusWrap = (props) => {
     return (
-        <section className={s.info}>
+        <section className={s.content}>
             <h1 className={s.profileTitle}>My profile</h1>
-            <div className={s.desc}>
-                <MyProfileStatus isOwner={props.isOwner} isFetching={props.isFetching} profile={props.profile}
-                                 status={props.status}
-                                 updateStatus={props.updateStatus}/>
-            </div>
+                <MyProfileStatus updateStatus={props.updateStatus} isOwner={props.isOwner} isFetching={props.isFetching} profile={props.profile}
+                                 status={props.status}/>
         </section>
     );
 };

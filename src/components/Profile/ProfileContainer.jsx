@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {
-    getStatus,
+    setStatus,
     setUserProfile,
     updatePhoto,
     updateProfileData,
@@ -23,7 +23,7 @@ const ProfileContainer = (props) => {
             }
             if (userId) {
                 props.setUserProfile(userId);
-                props.getStatus(userId);
+                props.setStatus(userId);
             }
         }, [props.match.params.userId, props.isAuth]
     )
@@ -44,7 +44,7 @@ const mapStateToProps = (state) => (
 
 export default compose(connect(mapStateToProps, {
     setUserProfile,
-    getStatus,
+    setStatus,
     updateStatus,
     updatePhoto,
     updateProfileData

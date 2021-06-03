@@ -3,6 +3,7 @@ import {Field, reduxForm} from "redux-form";
 import s from "./MyProfileDataForm.module.scss";
 import BlueButton from "../../../common/BlueButton/BlueButton";
 import ErrorComponent from "../../../common/FormElements/ErrorComponents/ErrorComponent";
+import styled from "styled-components";
 
 const MyProfileDataForm = (props) => {
     return (
@@ -29,13 +30,11 @@ const MyProfileDataForm = (props) => {
             {Object.keys(props.profile.contacts).map(
                 key => {
                     return (
-                        <>
-                            <article key={key} className={s.formItem}>
-                                <label className={s.contactLabel}>{key}: </label>
-                                <Field name={'contacts.' + key} placeholder={key} className={s.contactItem}
-                                       component={"input"} type={'text'}/>
-                            </article>
-                        </>
+                        <article key={key} className={s.formItem}>
+                            <label className={s.contactLabel}>{key}: </label>
+                            <Field name={'contacts.' + key} placeholder={key} className={s.contactItem}
+                                   component={"input"} type={'text'}/>
+                        </article>
                     )
                 })
             }

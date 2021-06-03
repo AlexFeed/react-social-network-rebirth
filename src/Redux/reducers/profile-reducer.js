@@ -1,10 +1,13 @@
 import {profileAPI} from "../../api/api";
+import {stopSubmit} from "redux-form";
 
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_STATUS = 'SET-STATUS';
 const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
 const DELETE_POST = 'DELETE-POST'
+const UPDATE_PHOTO = 'UPDATE-PHOTO'
+const UPDATE_PROFILE_DATA = 'UPDATE-PROFILE-DATA'
 
 let initialState = {
     postsData: [
@@ -48,6 +51,9 @@ const profileReducer = (state = initialState, action) => {
         case TOGGLE_IS_FETCHING :
             return {...state, isFetching: action.isFetching};
 
+        case UPDATE_PHOTO :
+            return {...state, profile: {...state.profile, photos: action.photo}}
+
         default:
             return state
     }
@@ -58,6 +64,7 @@ export const deletePostAC = (postId) => ({type: ADD_POST, postId});
 export const setUserProfileAC = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatusAC = (status) => ({type: SET_STATUS, status});
 export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
+export const updatePhotoAC = (photo) => ({type: UPDATE_PHOTO, photo});
 
 export const setUserProfile = (userId) => {
     return dispatch => {
@@ -88,6 +95,34 @@ export const updateStatus = (status) => {
                 }
             }
         )
+    }
+};
+
+export const updatePhoto = (photoFile) => {
+    return dispatch => {
+        profileAPI.updatePhoto(photoFile).then(
+            response => {
+                if (response.resultCode === 0) {
+                    dispatch(updatePhotoAC(response.photos))
+                }
+            }
+        )
+    }
+};
+
+
+export const updateProfileData = (profile) => {
+    return async (dispatch, getState) => {
+        const userId = getState().auth.userId;
+        const response = await profileAPI.updateProfile(profile);
+
+        if (response.resultCode === 0) {
+            dispatch(setUserProfile(userId));
+        } else {
+            dispatch(stopSubmit("editProfileData", {_error: response.messages[0]}));
+            return Promise.reject(response.messages[0]);
+        }
+
     }
 };
 

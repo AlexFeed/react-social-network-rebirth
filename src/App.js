@@ -1,21 +1,16 @@
 import Navbar from "./components/Navbar/Navbar";
-import styles from "./App.scss";
-import {
-    Route, withRouter,
-} from "react-router-dom";
-import MainContainer from "./components/Profile/MainContainer";
+import s from "./App.module.scss";
+import {Route} from "react-router-dom";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginContainer from "./components/Login/LoginContainer";
-import React, {Component, Suspense} from "react";
+import React, {Component} from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {initialize} from "./Redux/reducers/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
-import withSuspense from "./HOC/withSuspense";
-
-const DialogsContainer = React.lazy(() => import('./components/Dialogs/dialogsContainer'));
-const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
-const News = React.lazy(() => import('./components/News/News'));
+import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const mapStateToProps = (state) => ({
     initialization: state.app.initialization
@@ -30,18 +25,17 @@ class App extends Component {
 
     render() {
         if (!this.props.initialization) {
-            return <div className="preloader"><Preloader/></div>
+            return <div className={s.preloader}><Preloader/></div>
         } else {
             return (
-                <div className='appWrapper'>
-                    <HeaderContainer className='header'/>
+                <div className={s.appWrapper}>
+                    <HeaderContainer className={s.header}/>
                     <Navbar/>
-                    <main className="appWrapper__content">
-                        <Route render={() => <MainContainer/>} path='/profile/:userId?'/>
-                        <Route render={withSuspense(DialogsContainer)} path='/dialogs'/>
-                        <Route render={withSuspense(UsersContainer) } path={'/users'}/>
+                    <main className={s.appWrapper__content}>
+                        <Route render={() => <ProfileContainer/>} path='/profile/:userId?'/>
+                        <Route render={() => <DialogsContainer/>} path='/dialogs'/>
+                        <Route render={() => <UsersContainer/> } path={'/users'}/>
                         <Route render={() => <LoginContainer/>} path={'/login'}/>
-                        <Route render={withSuspense(News)} path='/news'/>
                     </main>
                 </div>
             );

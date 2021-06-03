@@ -28,36 +28,24 @@ const MyProfileStatus = (props) => {
         setStatus(e.currentTarget.value)
     }
 
-    useEffect( () => {
+    useEffect(() => {
         setStatus(props.status)
     }, [props.status])
 
     return (
-        <div className={s.info}>
-            <h1 className={s.name}>{props.profile.fullName}</h1>
-            <div className={s.desc}>
-                {
-                    props.isFetching ? <Preloader/> : editMode
-                        ? <>
-                            <label htmlFor="aboutMe">Статус:</label> <input id="aboutMe"
-                                                                            value={status}
-                                                                            onChange={onStatusChange}
-                                                                            autoFocus={true}
-                                                                            onBlur={deactivateEditMode}
-                                                                            className={s.statusInput} type="text"/>
-                        </>
+        <div className={s.desc}>
+            {
+                props.isFetching ? <Preloader/> : editMode
+                    ? <>
+                        <label htmlFor="aboutMe">Статус:</label> <input id="aboutMe"
+                                                                        value={status}
+                                                                        onChange={onStatusChange}
+                                                                        autoFocus={true}
+                                                                        onBlur={deactivateEditMode}
+                                                                        className={s.statusInput} type="text"/>
+                    </>
 
-                        : <p onClick={activateEditMode} className={s.status}>Статус: {props.status}</p>}
-
-                {props.profile.aboutMe ? <p>Обо мне: {props.profile.aboutMe}</p> : ''}
-                <span
-                    className={s.job}>Работа: {props.profile.lookingForAJob ? 'в поиске' : 'не интересуюсь'}
-                    </span>
-                <br/>
-                {props.profile.lookingForAJobDescription
-                    ? <p className={s.jobDesc}>Рабочее описание: {props.profile.lookingForAJobDescription} </p>
-                    : ''}
-            </div>
+                    : <p onClick={activateEditMode} className={s.status}>Статус: {props.status}</p>}
         </div>
     )
 };

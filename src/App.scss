@@ -1,0 +1,26 @@
+.appWrapper {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav content content";
+  grid-template-columns: 2fr 10fr;
+  margin-bottom: 50px;
+
+  &__content {
+    grid-area: content;
+    margin-left: 80px;
+  }
+}
+
+.header {
+  grid-area: header;
+}
+
+.preloader {
+  position: absolute;
+  top: 40px;
+  left: 45%;
+}
+
+
+

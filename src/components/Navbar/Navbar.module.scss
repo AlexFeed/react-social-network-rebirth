@@ -1,0 +1,33 @@
+.nav {
+  grid-area: nav;
+  margin-left: 100px;
+  &__img {
+    width: 30px;
+    float: right;
+    height: 30px;
+  }
+  &__href {
+    display: inline-block;
+    color: #191919;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Akaya Kanadaka';
+  }
+  &__item {
+    display: inline-block;
+    transition: .5s;
+    padding: 7px 20px 7px 20px;
+    margin-top: 15px;
+    width: 120px;
+    height: 35px;
+  }
+
+  .active {
+    background-color: #d4d3d3;
+  }
+
+  &__item:hover {
+    background-color: #d4d3d3;
+    border-radius: 50px;
+  }
+}

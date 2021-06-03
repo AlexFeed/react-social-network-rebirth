@@ -1,0 +1,38 @@
+.error {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.errorAnimation {
+  transition: 1s opacity, 1s visibility ,1s transform;
+  visibility: visible;
+  opacity: 1;
+  background-color: #be4b49;
+  border: 0;
+  color: #fff;
+  padding: 13px;
+  text-align: center;
+  border-radius: 4px;
+  height: 24px;
+  transform: translateY(15px);
+}
+
+.errorAnimation::after {
+  content: '';
+  position: absolute;
+  border: 20px solid transparent;
+  border-bottom: 20px solid #be4b49;
+  top: -40px;
+  right: 43.3%;
+}
+
+.errorComponent {
+  position: relative;
+  max-width: 300px;
+}
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+.login {
+  margin-top: 20px;
+  font-family: 'Akaya Kanadaka', cursive;
+  &__item {
+    width: 400px;
+    margin: 0 auto 10px auto;
+    height: 50px;
+    border: 1px solid #898888;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 20px;
+  }
+
+  &__item:focus {
+    border-radius: 20px;
+    border: 2px solid black;
+    outline: none;
+  }
+
+  &__checkbox {
+    box-sizing: border-box;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    border: 1px solid #898888;
+  }
+
+  &__checkbox:checked {
+    background-color: #88858d;
+  }
+
+  .checkbox__label {
+    display: inline-block;
+  }
+
+  &__button {
+    width: 200px;
+    height: 40px;
+  }
+}
+
+.loginError {
+  color: #be4b49;
+  margin-top: 10px;
+  display: inline-block;
+  width: auto;
+}

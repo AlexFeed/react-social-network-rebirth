@@ -1,0 +1,25 @@
+.newPost__textarea {
+  width: 80%;
+  height: 100px;
+  resize: none;
+  border: none;
+  background-color: #d4d3d3;
+  font-size: 20px;
+  font-family: 'Akaya Kanadaka', cursive;
+}
+
+.newPost__textarea:focus {
+  outline: none;
+}
+
+.button {
+  width: 180px;
+  height: 50px;
+  margin-top: 15px;
+}
+
+.myPosts__title {
+  font-family: 'Josefin Sans';
+}
+
+

@@ -1,0 +1,30 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px;
+  flex-wrap: wrap;
+}
+
+.pageNumber {
+  text-decoration: none;
+  color: #3d3d45;
+  border: none ;
+  font-size: 20px;
+  transition: .3s;
+  padding: 10px;
+}
+
+.pageNumber:hover {
+  background-color: #8094ae;
+  border-radius: 20px;
+}
+
+.currentPage {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navButton {
+  height: 30px;
+  margin: 10px;
+}

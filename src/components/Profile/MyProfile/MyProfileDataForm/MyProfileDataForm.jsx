@@ -3,7 +3,6 @@ import {Field, reduxForm} from "redux-form";
 import s from "./MyProfileDataForm.module.scss";
 import BlueButton from "../../../common/BlueButton/BlueButton";
 import ErrorComponent from "../../../common/FormElements/ErrorComponents/ErrorComponent";
-import styled from "styled-components";
 
 const MyProfileDataForm = (props) => {
     return (

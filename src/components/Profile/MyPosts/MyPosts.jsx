@@ -20,7 +20,7 @@ const MyPostsForm = (props) => {
             <Field component={RequiredTextArea} name='newPostText' validate={[required]} className={s.newPost__textarea}
                    placeholder='your news'/>
             <div className={s.button}>
-                <BlueButton content="Send"/>
+                <BlueButton content="Отправить"/>
             </div>
         </form>
     );
@@ -33,7 +33,8 @@ const MyPostsReduxForm = reduxForm({
 const MyPosts = React.memo(props => {
     const posts = props.postsData.map(p => <Post message={p.message} key={p.id} likes={p.likes}/>)
     const addNewPost = (formData) => {
-        props.addPost(formData.newPostText)
+        props.addPost(formData.newPostText);
+        formData.newPostText = '';
     };
 
     return (

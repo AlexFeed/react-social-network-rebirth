@@ -1,20 +1,14 @@
 .login {
   margin-top: 20px;
-  font-family: 'Akaya Kanadaka', cursive;
+  font-family: gothamPro;
   &__item {
     width: 400px;
-    margin: 0 auto 10px auto;
-    height: 50px;
-    border: 1px solid #898888;
-    font-size: 15px;
-    font-weight: 400;
-    border-radius: 20px;
-  }
-
-  &__item:focus {
-    border-radius: 20px;
-    border: 2px solid black;
-    outline: none;
+    height: 35px;
+    border: 2px solid #898888;
+    font-size: 16px;
+    padding: 5px 8px;
+    font-family: inherit;
+    margin-bottom: 20px;
   }
 
   &__checkbox {
@@ -36,12 +30,6 @@
   &__button {
     width: 200px;
     height: 40px;
+    margin-top: 20px;
   }
-}
-
-.loginError {
-  color: #be4b49;
-  margin-top: 10px;
-  display: inline-block;
-  width: auto;
 }

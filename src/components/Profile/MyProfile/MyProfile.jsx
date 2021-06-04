@@ -13,10 +13,8 @@ const MyProfile = (props) => {
     }
 
     const onSubmit = (formData) => {
-        debugger
         props.updateProfileData(formData).then(
             () => {
-                debugger
                 setEditMode(false);
             }
         );
@@ -28,10 +26,13 @@ const MyProfile = (props) => {
                 <div className={s.ava}><img
                     src={props.profile.photos.large || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJlgFIAW5_WsnFNYIH3IsGVgE-M_3P-3YTGw&usqp=CAU"}
                     alt="ava" className={s.ava__img}/></div>
-                <MyProfileStatusWrap isFetching={props.isFetching} profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
-                { editMode
-                    ? <MyProfileDataForm initialValues={props.profile} profile={props.profile}  onSubmit={onSubmit}/>
-                    : <MyProfileData activateEditMode={() => {setEditMode(true)} } profile={props.profile} isOwner={props.isOwner}/> }
+                <MyProfileStatusWrap isFetching={props.isFetching} profile={props.profile} status={props.status}
+                                     updateStatus={props.updateStatus}/>
+                {editMode
+                    ? <MyProfileDataForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/>
+                    : <MyProfileData activateEditMode={() => {
+                        setEditMode(true)
+                    }} profile={props.profile} isOwner={props.isOwner}/>}
             </div>
         </div>
     );

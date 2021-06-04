@@ -1,13 +1,12 @@
 .dialogItem {
   display: flex;
   position: relative;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   padding: 0.5rem 1.25rem;
-  border-radius: .25rem;
   margin-right: 10px;
-  border: 1px solid #e5e9f2;
-  background-color: cornsilk;
+  font-family: 'Akaya Kanadaka', cursive;
+  border: 1px solid rgba(0,0,0,.125);
+  border-top: none;
+  transition: .4s;
 
   &__name {
     position: absolute;
@@ -23,12 +22,16 @@
   }
 }
 
+.dialogItem:first-of-type {
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
 .dialogItem:hover {
-  border-color: #0024ff;
+  background-color: #9593e5;
+  color: white;
 }
 
 .active {
-  background: #665dfe;
-  border: 1px solid #665dfe;
+  background-color: #665dfe;
   color: white;
 }

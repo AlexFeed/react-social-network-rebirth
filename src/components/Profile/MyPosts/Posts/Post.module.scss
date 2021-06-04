@@ -10,27 +10,13 @@
     width: 50px;
     float: left;
     margin-bottom: 20px;
+    border-radius: 50%;
   }
   &__msg {
     font-size: 18px;
     margin-left: 80px;
-    font-family: 'Akaya Kanadaka', cursive;
-    font-size: 1.2em;
-  }
-  &__likesWrapper {
-    clear: both;
-    margin-top: 30px;
-  }
-  &__likes {
-    display: block;
-    margin-left: 60px;
-    opacity: 50%;
-    padding-top: 9px;
-  }
-
-  &__likesImage {
-    width: 45px;
-    float: left;
+    font-family: gothamPro;
+    margin-top: 13px;
   }
 }
 

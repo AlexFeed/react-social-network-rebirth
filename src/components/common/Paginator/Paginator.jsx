@@ -29,7 +29,6 @@ const Paginator = ({totalItemsCount, pageSize, onPageChanged, currentPage, porti
             {pages
                 .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
                 .map((p) => <button key={p} onClick={() => onPageChanged(p)}
-                                    href="!#"
                                     className={classNames(s.pageNumber, currentPage === p && s.currentPage)}>{p}</button>
                 )}
 

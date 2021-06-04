@@ -9,13 +9,6 @@ const Post = (props) => {
             <p className={s.post__msg}>
                 {props.message}
             </p>
-            <div className={s.post__likesWrapper}>
-                <img src="https://image.flaticon.com/icons/png/128/148/148836.png"
-                     alt="likes" className={s.post__likesImage}/>
-                <span className={s.post__likes}>
-                {props.likes}
-                </span>
-            </div>
         </div>
     );
 }

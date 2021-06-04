@@ -1,6 +1,7 @@
 .header {
   grid-area: header;
   position: relative;
+
   &__img {
     height: 60px;
     margin-left: 115px;
@@ -9,24 +10,52 @@
 }
 
 .login {
+  display: inline-block;
   text-align: center;
+  text-decoration: none;
+  margin-bottom: 10px;
 }
+
+.logout {
+  margin: 0 auto 0 auto;
+  width: 130px;
+  height: 30px;
+}
+
 
 .loginBlock {
   position: absolute;
   top: 0;
   right: 30px;
   text-align: center;
-  font-family: 'Mukta';
+  font-family: gothamPro;
 }
+
+.absoluteColumn {
+  position: absolute;
+  right: 100px;
+  margin-top: 20px;
+}
+
 .ava__img {
   width: 80px;
   height: 80px;
   margin-top: 10px;
+  border-radius: 50%;
 }
 
-.logout {
-  margin: 0 auto 0 auto;
-  width: 100px;
-  height: 30px;
+
+.redirectToLogin {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 15px;
+  font-size: 18px;
+  padding: 7px;
+  transition: background-color .5s, border-radius .5s;
 }
+
+.redirectToLogin:hover {
+  background-color: #d4d3d3;
+  border-radius: 50px;
+}
+

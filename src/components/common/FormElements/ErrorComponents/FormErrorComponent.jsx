@@ -1,7 +1,7 @@
 import React from 'react';
-import s from '../ErrorComponents/ErrorComponents.module.scss';
+import s from './ErrorComponents.module.scss';
 
-function ErrorComponent(props) {
+function FormErrorComponent(props) {
     let hasError = props.meta.touched && props.meta.error;
 
     return <div className={s.errorComponent}>
@@ -9,4 +9,4 @@ function ErrorComponent(props) {
     </div>;
 }
 
-export default ErrorComponent;
+export default FormErrorComponent;

@@ -7,8 +7,9 @@ const UsersElement = (props) => {
     return (
         <div className={s.el}>
             <div className={s.avaContainer}>
-                <NavLink className={s.ava__wrapper} to={'/profile/' + props.id}><img src={props.photoUrl} alt=""
-                                                                                     className={s.ava}/></NavLink> <br/>
+                <NavLink className={s.ava__wrapper} to={'/profile/' + props.id}>
+                    <img src={props.photoUrl} alt="user" className={s.ava}/>
+                </NavLink> <br/>
                 {
                     props.followed
                         ? <div className={s.followBtn}>

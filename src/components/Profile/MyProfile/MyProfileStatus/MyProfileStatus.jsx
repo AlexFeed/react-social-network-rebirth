@@ -3,8 +3,8 @@ import React, {useEffect, useState} from "react";
 import Preloader from "../../../common/Preloader/Preloader";
 
 const MyProfileStatus = (props) => {
-    let [editMode, setEditMode] = useState(false);
-    let [status, setStatus] = useState(props.status);
+    const [editMode, setEditMode] = useState(false);
+    const [status, setStatus] = useState(props.status);
 
     const activateEditMode = () => {
         setEditMode(true);
@@ -14,10 +14,10 @@ const MyProfileStatus = (props) => {
     const deactivateEditMode = () => {
         setEditMode(false);
         if (status.length > 300) {
-            alert('Сообщение не должно превышать 300 символов!');
+            props.setGlobalError('Сообщение не должно превышать 300 символов!');
             setStatus(true);
         } else if (status === '') {
-            alert('Вы должны что-то ввести, прежде чем отправлять статус!');
+            props.setGlobalError('Вы должны что-то ввести, прежде чем отправлять статус!');
             setStatus(true);
         } else {
             props.updateStatus(status);
@@ -29,13 +29,13 @@ const MyProfileStatus = (props) => {
     }
 
     useEffect(() => {
-        setStatus(props.status)
+        setStatus(props.status);
     }, [props.status])
 
     return (
         <div className={s.desc}>
             {
-                props.isFetching ? <Preloader/> : editMode
+                props.isFetching ? <Preloader/> : editMode && props.isOwner
                     ? <>
                         <label htmlFor="aboutMe">Статус:</label> <input id="aboutMe"
                                                                         value={status}
@@ -45,7 +45,8 @@ const MyProfileStatus = (props) => {
                                                                         className={s.statusInput} type="text"/>
                     </>
 
-                    : <p onClick={activateEditMode} className={s.status}>Статус: {props.status}</p>}
+                    : <p onClick={activateEditMode}
+                         className={`${s.status} ${props.isOwner ? s.ownerStatusStyles : ''}`}>Статус: {props.status}</p>}
         </div>
     )
 };

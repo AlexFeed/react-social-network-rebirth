@@ -5,9 +5,9 @@ import React from "react";
 const MyProfileStatusWrap = (props) => {
     return (
         <section className={s.content}>
-            <h1 className={s.profileTitle}>My profile</h1>
+            <h1 className={s.profileTitle}>{props.isOwner ? 'My profile' : 'User Profile'}</h1>
                 <MyProfileStatus updateStatus={props.updateStatus} isOwner={props.isOwner} isFetching={props.isFetching} profile={props.profile}
-                                 status={props.status}/>
+                                 setGlobalError={props.setGlobalError} status={props.status}/>
         </section>
     );
 };

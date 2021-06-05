@@ -5,14 +5,17 @@ import {required} from "../../uitls/validators/validator";
 import withRequiredFormElement from "../common/FormElements/withRequiredFormElement/withRequiredFormElement";
 import {Redirect} from "react-router-dom";
 import styled from "styled-components";
+import cn from "classnames";
+import ErrorComponent from "../common/FormElements/ErrorComponents/ErrorComponent";
 
-const InputErrorWrap = styled.div`
+const ErrorWrap = styled.div`
   max-width: 400px;
 `;
 
-const LoginInput = withRequiredFormElement("input", InputErrorWrap);
+const LoginInput = withRequiredFormElement("input", ErrorWrap);
 
 const LoginForm = (props) => {
+    debugger
     return (
         <form onSubmit={props.handleSubmit} className={s.login__form}>
             <Field validate={[required]} component={LoginInput} name={"email"} placeholder="Email" type="text"
@@ -22,11 +25,19 @@ const LoginForm = (props) => {
             <Field component={"input"} name={"rememberMe"} id="login__checkbox" className={s.login__checkbox}
                    type="checkbox"/>
             <label className={s.checkbox__label} htmlFor="login__checkbox">Remember me</label>
+            {props.captchaURL
+                ? <article className={s.captchaWrap}>
+                    <img src={props.captchaURL} alt="captcha"/> <br/>
+                    <Field placeholder={'Введите символы с картинки'} validate={[required]} component={LoginInput} name={"captcha"}
+                           className={cn(s.login__item, s.login__captcha)} type="text"/>
+                </article>
+                : ''}
             <div className={s.login__button}>
-                <BlueButton>Login</BlueButton>
+                <BlueButton disabled={props.isLoginButtonDisabled}>Login</BlueButton>
             </div>
+            {props.error && <ErrorWrap><ErrorComponent error={props.error}/></ErrorWrap>}
         </form>
-)
+    )
 };
 
 const LoginReduxForm = reduxForm(
@@ -35,19 +46,19 @@ const LoginReduxForm = reduxForm(
     }
 )(LoginForm);
 
-const Login = (props) =>
-    {
+const Login = (props) => {
         if (props.isAuth) {
             return <Redirect to={"/profile"}/>
         }
 
         const onSubmit = (formData) => {
-            props.login(formData.email, formData.password, formData.rememberMe)
+            props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
         }
+
         return (
             <div className={s.login}>
                 <h1>Login</h1>
-                <LoginReduxForm loginError={props.loginError} onSubmit={onSubmit}/>
+                <LoginReduxForm isLoginButtonDisabled={props.isLoginButtonDisabled} captchaURL={props.captchaURL} loginError={props.loginError} onSubmit={onSubmit}/>
             </div>
         )
     }

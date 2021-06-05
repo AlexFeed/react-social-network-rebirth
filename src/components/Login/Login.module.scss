@@ -1,6 +1,6 @@
 .login {
   margin-top: 20px;
-  font-family: gothamPro;
+  font-family: gothamPro, sans-serif;
   &__item {
     width: 400px;
     height: 35px;
@@ -30,6 +30,14 @@
   &__button {
     width: 200px;
     height: 40px;
-    margin-top: 20px;
   }
+
+  &__captcha {
+    width: 100%;
+    height: 30px;
+  }
+}
+
+.captchaWrap {
+  max-width: 250px;
 }

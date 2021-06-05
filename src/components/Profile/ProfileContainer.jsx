@@ -11,25 +11,28 @@ import {
 import {withRouter} from "react-router-dom"
 import {compose} from "redux";
 import {authSelectors} from "../../Redux/selectors/auth-selectors";
+import {setGlobalError} from "../../Redux/reducers/app-reducer";
 
-const ProfileContainer = (props) => {
+const ProfileContainer = ({match, isAuth, userId, history, setUserProfile, setStatus, setGlobalError, updateProfileData,
+                              updatePhoto, isFetching, profile, status, updateStatus, isProfileFetching}) => {
     useEffect(
         () => {
-            let userId = props.match.params.userId;
-            if (!userId && props.isAuth === true) {
-                userId = props.userId;
-            } else if (!userId && props.isAuth === false) {
-                props.history.push('/login');
+            let innerUserId = match.params.userId;
+            if (!innerUserId && isAuth === true) {
+                innerUserId = userId;
+            } else if (!innerUserId && isAuth === false) {
+                history.push('/login');
             }
-            if (userId) {
-                props.setUserProfile(userId);
-                props.setStatus(userId);
+            if (innerUserId) {
+                setUserProfile(innerUserId);
+                setStatus(innerUserId);
             }
-        }, [props.match.params.userId, props.isAuth]
+        }, [match.params.userId, isAuth, userId, history, setStatus, setUserProfile]
     )
 
-    return <Profile updateProfileData={props.updateProfileData} updatePhoto={props.updatePhoto} isOwner={!props.match.params.userId}
-                    isFetching={props.isFetching} profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+    return <Profile setGlobalError={setGlobalError} updateProfileData={updateProfileData} updatePhoto={updatePhoto}
+                    isOwner={!match.params.userId} isFetching={isFetching} profile={profile} status={status}
+                    updateStatus={updateStatus} isProfileFetching={isProfileFetching}/>
 }
 
 
@@ -38,6 +41,7 @@ const mapStateToProps = (state) => (
         profile: state.profilePage.profile,
         status: state.profilePage.status,
         isFetching: state.profilePage.isFetching,
+        isProfileFetching: state.profilePage.isProfileFetching,
         userId: authSelectors.getUserId(state),
         isAuth: authSelectors.getIsAuth(state)
     })
@@ -47,5 +51,6 @@ export default compose(connect(mapStateToProps, {
     setStatus,
     updateStatus,
     updatePhoto,
-    updateProfileData
+    updateProfileData,
+    setGlobalError
 }), withRouter)(ProfileContainer);

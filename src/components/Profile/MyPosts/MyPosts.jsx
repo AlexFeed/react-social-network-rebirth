@@ -7,6 +7,7 @@ import {required} from "../../../uitls/validators/validator";
 import withRequiredFormElement from "../../common/FormElements/withRequiredFormElement/withRequiredFormElement";
 import sc from "styled-components";
 
+
 const ErrorStyles = sc.div`
   margin-right: 45%;
   float: right;
@@ -39,13 +40,9 @@ const MyPosts = React.memo(props => {
 
     return (
         <div className={s.postsContainer}>
-            <div className={s.myPosts}>
-                <h2 className={s.myPosts__title}>My posts</h2>
-                <MyPostsReduxForm onSubmit={addNewPost}/>
-            </div>
-            <div className={s.otherPosts}>
+                <h2 className={s.myPosts__title}>Posts</h2>
+                {props.isOwner ? <MyPostsReduxForm onSubmit={addNewPost}/> : ''}
                 {posts}
-            </div>
         </div>
     );
 });

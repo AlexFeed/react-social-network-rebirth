@@ -1,4 +1,3 @@
-import React from 'react';
 import {connect} from 'react-redux';
 import Login from "./Login";
 import {login, logout} from "../../Redux/reducers/auth-reducer";
@@ -6,15 +5,11 @@ import {login, logout} from "../../Redux/reducers/auth-reducer";
 function mapStateToProps(state) {
     return {
         loginError: state.auth.loginError,
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        captchaURL: state.auth.captchaURL,
+        isLoginButtonDisabled: state.auth.isLoginButtonDisabled
     };
 }
 
-const LoginContainer = (props) => {
-    return (
-        <Login {...props}/>
-    );
-};
 
-
-export default connect(mapStateToProps, {login, logout})(LoginContainer);
+export default connect(mapStateToProps, {login, logout})(Login);

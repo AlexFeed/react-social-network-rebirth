@@ -1,19 +1,27 @@
 .desc {
   margin-left: 30px;
-  font-family: gothamPro;
+  font-family: gothamPro, sans-serif;
   max-width: 250px;
 }
 
 .statusInput {
-  font-family: gothamPro;
+  font-family: gothamPro, sans-serif;
 }
 
 .status {
-  cursor: pointer;
-  margin-top: 0;
-  transition: .5s;
   padding: 7px 10px 7px 10px;
 }
+
+.ownerStatusStyles {
+  cursor: pointer;
+  transition: .5s;
+}
+
+.ownerStatusStyles:hover {
+  background-color: #d4d3d3;
+  border-radius: 10px;
+}
+
 
 .statusInput {
   padding: 7px 0 7px 10px;
@@ -31,7 +39,4 @@
   outline: none;
 }
 
-.status:hover {
-  background-color: #d4d3d3;
-  border-radius: 10px;
-}
+

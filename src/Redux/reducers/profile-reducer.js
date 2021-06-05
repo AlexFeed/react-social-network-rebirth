@@ -5,11 +5,11 @@ const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_STATUS = 'SET-STATUS';
 const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
-const DELETE_POST = 'DELETE-POST'
-const UPDATE_PHOTO = 'UPDATE-PHOTO'
-const UPDATE_PROFILE_DATA = 'UPDATE-PROFILE-DATA'
+const DELETE_POST = 'DELETE-POST';
+const UPDATE_PHOTO = 'UPDATE-PHOTO';
+const SET_PROFILE_FETCHING = 'SET-PROFILE-FETCHING';
 
-let initialState = {
+const initialState = {
     postsData: [
         {
             message: "1 message Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dapibus eget sem eget eleifend.",
@@ -22,6 +22,7 @@ let initialState = {
     profile: null,
     status: '',
     isFetching: false,
+    isProfileFetching: false
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -43,16 +44,19 @@ const profileReducer = (state = initialState, action) => {
             }
 
         case SET_USER_PROFILE :
-            return {...state, profile: action.profile}
+            return {...state, profile: action.profile};
 
         case SET_STATUS :
-            return {...state, status: action.status}
+            return {...state, status: action.status};
 
         case TOGGLE_IS_FETCHING :
             return {...state, isFetching: action.isFetching};
 
         case UPDATE_PHOTO :
-            return {...state, profile: {...state.profile, photos: action.photo}}
+            return {...state, profile: {...state.profile, photos: action.photos}};
+
+        case SET_PROFILE_FETCHING :
+            return {...state, isProfileFetching: action.isProfileFetching}
 
         default:
             return state
@@ -64,13 +68,16 @@ export const deletePostAC = (postId) => ({type: ADD_POST, postId});
 export const setUserProfileAC = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatusAC = (status) => ({type: SET_STATUS, status});
 export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
-export const updatePhotoAC = (photo) => ({type: UPDATE_PHOTO, photo});
+export const updatePhotoAC = (photos) => ({type: UPDATE_PHOTO, photos});
+export const setProfileFetching = (isProfileFetching) => ({type: SET_PROFILE_FETCHING, isProfileFetching});
 
 export const setUserProfile = (userId) => {
     return dispatch => {
+        dispatch(setProfileFetching(true));
         profileAPI.getProfileData(userId).then(
             profileData => {
-                dispatch(setUserProfileAC(profileData))
+                dispatch(setUserProfileAC(profileData));
+                dispatch(setProfileFetching(false));
             }
         )
     }
@@ -79,14 +86,14 @@ export const setUserProfile = (userId) => {
 export const setStatus = (userId) => {
     return dispatch => {
         profileAPI.getStatus(userId).then(
-            status => dispatch(setStatusAC(status || 'Здесь нет статуса!'))
+            status => dispatch(setStatusAC(status || 'No information'))
         )
     }
 };
 
 export const updateStatus = (status) => {
     return dispatch => {
-        dispatch(toggleIsFetchingAC(true))
+        dispatch(toggleIsFetchingAC(true));
         profileAPI.updateStatus(status).then(
             response => {
                 if (response.resultCode === 0) {
@@ -103,7 +110,7 @@ export const updatePhoto = (photoFile) => {
         profileAPI.updatePhoto(photoFile).then(
             response => {
                 if (response.resultCode === 0) {
-                    dispatch(updatePhotoAC(response.photos))
+                    dispatch(updatePhotoAC(response.data.photos))
                 }
             }
         )

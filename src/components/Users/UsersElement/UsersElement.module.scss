@@ -14,7 +14,6 @@
 
 .el {
   display: flex;
-  font-family: 'Mukta', sans-serif;
   width: 60%;
   color: #9a9a9a;
   margin-bottom: 40px;
@@ -30,6 +29,8 @@
 .avaContainer {
   flex-grow: 1;
   align-self: center;
+  width: 150px;
+  max-width: 150px;
 }
 
 .usersInfo {
@@ -39,11 +40,12 @@
   border-radius: 10px;
   align-self: center;
   margin-left: 10px;
-  background-color: #eeeded;
+  background-color: white;
+  box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px #e7e8ec;
 }
 
 .name {
-  font-family: 'Akaya Kanadaka';
+  font-family: 'Akaya Kanadaka', cursive;
   margin-top: 0;
   margin-bottom: 0;
 }

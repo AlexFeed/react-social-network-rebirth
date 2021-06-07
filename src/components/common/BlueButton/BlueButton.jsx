@@ -4,7 +4,7 @@ const Button = styled.button`
   width: inherit;
   height: inherit;
   background-color: #10c9c3;
-  font-family: gothamPro;
+  font-family: gothamPro, sans-serif;
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;

@@ -2,6 +2,7 @@
   width: 100%;
   margin-left: 30%;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 @keyframes spin {
   100% {
@@ -45,5 +46,4 @@
   -moz-animation: spin 1000ms infinite linear;
   -o-animation: spin 1000ms infinite linear;
   -webkit-animation: spin 1000ms infinite linear;
-  -ms-animation: spin 1000ms infinite linear;
 }

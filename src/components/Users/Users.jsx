@@ -3,7 +3,7 @@ import UsersElement from "./UsersElement/UsersElement";
 import Preloader from "../common/Preloader/Preloader";
 import React from "react";
 import Paginator from "../common/Paginator/Paginator";
-import defaultUserIcon from "./../../images/defaultProfileIcon.png"
+import defaultUserIcon from "../common/images/defaultProfileIcon.png"
 
 const Users = (props) => {
     return (

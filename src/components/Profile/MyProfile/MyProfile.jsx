@@ -4,7 +4,7 @@ import MyProfileStatusWrap from "./MyProfileStatusWrap/MyProfileStatusWrap";
 import MyProfileData from "./MyProfileData/MyProfileData";
 import MyProfileDataForm from "./MyProfileDataForm/MyProfileDataForm";
 import {useState} from "react";
-import profileIcon from "./../../../images/defaultProfileIcon.png"
+import profileIcon from "../../common/images/defaultProfileIcon.png"
 
 const MyProfile = (props) => {
     const [editMode, setEditMode] = useState(false);

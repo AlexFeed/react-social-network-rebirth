@@ -1,5 +1,5 @@
 import s from "./Message.module.scss";
-import profileIcon from "./../../../images/defaultProfileIcon.png";
+import profileIcon from "../../common/images/defaultProfileIcon.png";
 
 const Message = (props) => {
     return (

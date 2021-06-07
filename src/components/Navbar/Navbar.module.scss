@@ -1,6 +1,7 @@
 .nav {
   grid-area: nav;
-  margin-left: 100px;
+  padding-left: 65px;
+  min-height:100vh;
   &__img {
     width: 30px;
     float: right;
@@ -11,7 +12,7 @@
     color: #191919;
     text-decoration: none;
     text-align: center;
-    font-family: 'Akaya Kanadaka';
+    font-family: 'Akaya Kanadaka', cursive;
   }
   &__item {
     display: inline-block;

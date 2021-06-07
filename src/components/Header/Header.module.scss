@@ -1,6 +1,8 @@
 .header {
   grid-area: header;
   position: relative;
+  background-color: #343434;
+  padding-bottom: 10px;
 
   &__img {
     height: 60px;
@@ -14,6 +16,7 @@
   text-align: center;
   text-decoration: none;
   margin-bottom: 10px;
+  color: #9c9c9e;
 }
 
 .logout {
@@ -22,40 +25,44 @@
   height: 30px;
 }
 
-
 .loginBlock {
   position: absolute;
   top: 0;
   right: 30px;
   text-align: center;
-  font-family: gothamPro;
+  font-family: gothamPro, sans-serif;
 }
 
 .absoluteColumn {
   position: absolute;
   right: 100px;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .ava__img {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   margin-top: 10px;
   border-radius: 50%;
 }
-
 
 .redirectToLogin {
   display: inline-block;
   text-decoration: none;
   margin-top: 15px;
   font-size: 18px;
-  padding: 7px;
   transition: background-color .5s, border-radius .5s;
+  color: #9c9c9e;
+  padding: 7px 20px 7px 20px;
 }
 
 .redirectToLogin:hover {
-  background-color: #d4d3d3;
+  background-color: #656060;
+  border-radius: 50px;
+}
+
+.active {
+  background-color: #474545;
   border-radius: 50px;
 }
 

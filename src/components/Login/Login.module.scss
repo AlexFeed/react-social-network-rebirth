@@ -4,11 +4,12 @@
   &__item {
     width: 400px;
     height: 35px;
-    border: 2px solid #898888;
+    border: 2px solid #343434;
     font-size: 16px;
     padding: 5px 8px;
     font-family: inherit;
     margin-bottom: 20px;
+    background-color: #edeef0;
   }
 
   &__checkbox {
@@ -16,7 +17,7 @@
     width: 25px;
     height: 25px;
     vertical-align: middle;
-    border: 1px solid #898888;
+    border: 1px solid #343434;
   }
 
   &__checkbox:checked {

@@ -5,10 +5,6 @@ export const authSelectors = {
 
     getIsAuth: (state) => {
         return state.auth.isAuth
-    },
-
-    getLogin: (state) => {
-        return state.auth.login
     }
 }
 

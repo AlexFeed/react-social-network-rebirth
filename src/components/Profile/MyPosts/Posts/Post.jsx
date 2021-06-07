@@ -1,5 +1,5 @@
 import s from "./Post.module.scss";
-import profileIcon from "./../../../../images/defaultProfileIcon.png";
+import profileIcon from "../../../common/images/defaultProfileIcon.png";
 
 const Post = (props) => {
     return (

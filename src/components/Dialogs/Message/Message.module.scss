@@ -8,11 +8,12 @@
   &__msg {
     margin: 0 0 0 1.25rem;
     padding: 1rem 2.25rem;
-    background-color: #f5f6fa;
+    background-color: white;
     color: #8094ae;
     border-radius: 1.25rem;
     display: inline-block;
     max-width: 25rem;
+    box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px #e7e8ec;
   }
 
   &__name {

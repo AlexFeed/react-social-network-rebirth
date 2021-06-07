@@ -1,9 +1,10 @@
 .post {
   border-radius: 10px;
   padding: 15px 15px 30px 10px;
-  background-color: #eeeded;
+  background-color: white;
   margin-top: 40px;
   width: 80%;
+  box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px #e7e8ec;
   &__ava {
     width: 50px;
     float: left;

@@ -3,10 +3,10 @@ import {initialize, setGlobalError} from "./Redux/reducers/app-reducer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import Preloader from "./components/common/Preloader/Preloader";
 import UsersContainer from "./components/Users/UsersContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 import {Route, Redirect, Switch} from "react-router-dom";
+import HashLoader from "react-spinners/HashLoader";
 import Navbar from "./components/Navbar/Navbar";
 import React, {Component} from "react";
 import styled from "styled-components";
@@ -14,13 +14,11 @@ import {connect} from "react-redux";
 import s from "./App.module.scss";
 import {compose} from "redux";
 
+
 const mapStateToProps = (state) => ({
     initialization: state.app.initialization,
     globalError: state.app.globalError
 });
-
-
-
 
 class App extends Component {
     catchAllUnhandledErrors = (error) => {
@@ -42,7 +40,7 @@ class App extends Component {
 
     render() {
         if (!this.props.initialization) {
-            return <div className={s.preloader}><Preloader/></div>
+            return <article className={s.globalPreloaderWrap}><HashLoader size={100}/></article>
         } else {
             return (
                 <div className={s.appWrapper}>

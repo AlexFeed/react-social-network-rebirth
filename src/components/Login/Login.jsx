@@ -13,22 +13,33 @@ const ErrorWrap = styled.div`
 `;
 
 const LoginInput = withRequiredFormElement("input", ErrorWrap);
+const initialFormValues = {
+    email: 'alexdevelopfrontend@gmail.com',
+    password: 'jklf23DKLFjh234ed'
+}
 
 const LoginForm = (props) => {
-    debugger
     return (
-        <form onSubmit={props.handleSubmit} className={s.login__form}>
-            <Field validate={[required]} component={LoginInput} name={"email"} placeholder="Email" type="text"
+        <form onSubmit={props.handleSubmit}>
+            <Field defaultValue={'alexdevelopfrontend@gmail.com'} validate={[required]}
+                   component={LoginInput} name={"email"}
+                   placeholder="Email" type="text"
                    className={s.login__item}/>
-            <Field validate={[required]} component={LoginInput} type="password" name={"password"} placeholder="Password"
+            <Field validate={[required]}
+                   defaultValue={'jklf23DKLFjh234ed'}
+                   component={LoginInput} type="password"
+                   name={"password"} placeholder="Password"
                    className={s.login__item}/>
-            <Field component={"input"} name={"rememberMe"} id="login__checkbox" className={s.login__checkbox}
+            <Field component={"input"}
+                   name={"rememberMe"} id="login__checkbox"
+                   className={s.login__checkbox}
                    type="checkbox"/>
             <label className={s.checkbox__label} htmlFor="login__checkbox">Remember me</label>
             {props.captchaURL
                 ? <article className={s.captchaWrap}>
                     <img src={props.captchaURL} alt="captcha"/> <br/>
-                    <Field placeholder={'Введите символы с картинки'} validate={[required]} component={LoginInput} name={"captcha"}
+                    <Field placeholder={'Введите символы с картинки'} validate={[required]} component={LoginInput}
+                           name={"captcha"}
                            className={cn(s.login__item, s.login__captcha)} type="text"/>
                 </article>
                 : ''}
@@ -42,7 +53,7 @@ const LoginForm = (props) => {
 
 const LoginReduxForm = reduxForm(
     {
-        form: 'login'
+        form: 'login',
     }
 )(LoginForm);
 
@@ -58,7 +69,8 @@ const Login = (props) => {
         return (
             <div className={s.login}>
                 <h1>Login</h1>
-                <LoginReduxForm isLoginButtonDisabled={props.isLoginButtonDisabled} captchaURL={props.captchaURL} loginError={props.loginError} onSubmit={onSubmit}/>
+                <LoginReduxForm initialValues={initialFormValues} isLoginButtonDisabled={props.isLoginButtonDisabled} captchaURL={props.captchaURL}
+                                loginError={props.loginError} onSubmit={onSubmit}/>
             </div>
         )
     }

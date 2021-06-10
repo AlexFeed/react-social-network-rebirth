@@ -6,7 +6,7 @@
   font-family: 'Akaya Kanadaka', cursive;
   border: 1px solid rgba(0,0,0,.125);
   border-top: none;
-  transition: .4s;
+  transition: .3s;
 
   &__name {
     position: absolute;
@@ -14,8 +14,8 @@
   }
 
   &__img {
-    height: 3rem;
-    width: 3rem;
+    height: 50px;
+    width: 50px;
     display: inline-block;
     position: relative;
     border-radius: 50%;
@@ -27,11 +27,11 @@
 }
 
 .dialogItem:hover {
-  background-color: #9593e5;
+  background-color: #adadec;
   color: white;
 }
 
 .active {
-  background-color: #665dfe;
+  background-color: #9898ff;
   color: white;
 }

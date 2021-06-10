@@ -3,10 +3,12 @@
   display: flex;
 }
 
-.ava__img {
-  max-width: 300px;
-  min-width: 250px;
-  max-height: 350px;
+.ava {
+  &__img {
+    max-width: 300px;
+    min-width: 250px;
+    max-height: 350px;
+  }
 }
 
 .upload__input {

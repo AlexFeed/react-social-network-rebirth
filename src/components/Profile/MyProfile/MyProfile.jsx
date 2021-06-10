@@ -4,7 +4,7 @@ import MyProfileStatusWrap from "./MyProfileStatusWrap/MyProfileStatusWrap";
 import MyProfileData from "./MyProfileData/MyProfileData";
 import MyProfileDataForm from "./MyProfileDataForm/MyProfileDataForm";
 import {useState} from "react";
-import profileIcon from "../../common/images/defaultProfileIcon.png"
+import profileIcon from "../../../assets/images/defaultProfileIcon.png"
 
 const MyProfile = (props) => {
     const [editMode, setEditMode] = useState(false);
@@ -30,7 +30,7 @@ const MyProfile = (props) => {
     return (
         <div>
             <div className={s.MyProfile}>
-                <div className={s.ava}>
+                <section className={s.ava}>
                     <img
                         src={props.profile.photos.large || profileIcon}
                         alt="ava" className={s.ava__img}/> <br/>
@@ -50,7 +50,7 @@ const MyProfile = (props) => {
                             </label>
                         </div>
                     }
-                </div>
+                </section>
                 <MyProfileStatusWrap setGlobalError={props.setGlobalError} isOwner={props.isOwner} isFetching={props.isFetching}
                                      profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
                 {editMode

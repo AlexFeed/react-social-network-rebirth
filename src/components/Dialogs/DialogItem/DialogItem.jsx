@@ -1,6 +1,6 @@
 import s from "./DialogItem.module.scss";
 import {NavLink} from "react-router-dom";
-import defaultProfileIcon from "../../common/images/defaultProfileIcon.png"
+import defaultProfileIcon from "../../../assets/images/defaultProfileIcon.png"
 
 const DialogItem = (props) => {
     return (

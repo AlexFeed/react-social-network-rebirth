@@ -20,7 +20,7 @@ const DialogsForm = (props) => {
             <Field name='newDialogText' validate={[required]} component={RequiredTextArea}
                    className={s.newPost__textarea} placeholder='your message'/>
             <div className={s.button}>
-                <BlueButton content='Send message'/>
+                <BlueButton content='Отправить сообщение'/>
             </div>
         </form>
     );
@@ -32,8 +32,9 @@ const DialogsReduxForm = reduxForm({
 
 const Dialogs = (props) => {
     const dialogsElements = props.dialogsData.map(component => <DialogItem name={component.name} key={component.id}
-                                                                         id={component.id}/>);
-    const messagesElements = props.messages.map((msg) => <Message key={msg.id} msg={msg.message}/>);
+                                                                           id={component.id}/>);
+    const messagesElements = props.messages.map((msg) => <Message avaUrl={props.avaUrl} key={msg.id} msg={msg.message} likes={msg.likes}
+                                                                  fromOwner={msg.fromOwner}/>);
 
     const addMessage = (formData) => {
         props.addMessage(formData.newDialogText);
@@ -42,18 +43,16 @@ const Dialogs = (props) => {
 
 
     return (
-        <div className={s.dialogs}>
+        <section className={s.dialogs}>
             <h1 className={s.title}>DIALOGS</h1> <br/>
             <div className={s.dialogList}>
                 {dialogsElements}
             </div>
             <div className={s.messages}>
-                <div className="messages">
-                    {messagesElements}
-                    <DialogsReduxForm RequiredTextArea={RequiredTextArea} onSubmit={addMessage}/>
-                </div>
+                {messagesElements}
+                <DialogsReduxForm RequiredTextArea={RequiredTextArea} onSubmit={addMessage}/>
             </div>
-        </div>
+        </section>
     )
 };
 

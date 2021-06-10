@@ -6,6 +6,7 @@ import {Field, reduxForm} from "redux-form";
 import {required} from "../../../uitls/validators/validator";
 import withRequiredFormElement from "../../common/FormElements/withRequiredFormElement/withRequiredFormElement";
 import sc from "styled-components";
+import defaultProfileIcon from "./../../../assets/images/defaultProfileIcon.png";
 
 
 const ErrorStyles = sc.div`
@@ -32,7 +33,8 @@ const MyPostsReduxForm = reduxForm({
 })(MyPostsForm)
 
 const MyPosts = React.memo(props => {
-    const posts = props.postsData.map(p => <Post message={p.message} key={p.id} likes={p.likes}/>)
+    const posts = props.postsData.map(p => <Post  profilePhoto={props.profilePhoto || defaultProfileIcon}  message={p.message} key={p.id}
+                                                 likes={p.likes}/>)
     const addNewPost = (formData) => {
         props.addPost(formData.newPostText);
         formData.newPostText = '';
@@ -40,7 +42,7 @@ const MyPosts = React.memo(props => {
 
     return (
         <div className={s.postsContainer}>
-                <h2 className={s.myPosts__title}>Posts</h2>
+                <h2 className={s.myPosts__title}>{props.isOwner ? 'My posts' : 'Posts'}</h2>
                 {props.isOwner ? <MyPostsReduxForm onSubmit={addNewPost}/> : ''}
                 {posts}
         </div>

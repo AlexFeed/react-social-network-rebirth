@@ -1,8 +1,8 @@
 import s from "./Header.module.scss";
 import {NavLink} from "react-router-dom";
-import logo from "../common/images/logo.png";
+import logo from "../../assets/images/logo.png";
 import BlueButton from "../common/BlueButton/BlueButton";
-import defaultProfileIcon from "../common/images/defaultProfileIcon.png";
+import defaultProfileIcon from "../../assets/images/defaultProfileIcon.png";
 
 const Header = (props) => {
     return (

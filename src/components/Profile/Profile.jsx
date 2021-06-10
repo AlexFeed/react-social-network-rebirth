@@ -1,5 +1,5 @@
 import MyProfile from "./MyProfile/MyProfile";
-import MyPostsContainer from "./MyPosts/PostsContainer";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import Preloader from "../common/Preloader/Preloader";
 
 const Profile = (props) => {
@@ -11,7 +11,7 @@ const Profile = (props) => {
                              isFetching={props.isFetching}
                              profile={props.profile} status={props.status} updateStatus={props.updateStatus}
                              updateProfileData={props.updateProfileData}/>}
-            <MyPostsContainer  isOwner={props.isOwner}/>
+            <MyPostsContainer isOwner={props.isOwner}/>
         </>
     );
 }

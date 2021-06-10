@@ -1,9 +1,9 @@
 import s from "./Navbar.module.scss"
 import cx from 'classnames'
 import {NavLink} from "react-router-dom";
-import profileIcon from "../common/images/defaultProfileIcon.png";
-import userIcon from "../common/images/usersIcon.png"
-import messageIcon from "../common/images/messageIcon.png";
+import profileIcon from "../../assets/images/defaultProfileIcon.png";
+import userIcon from "../../assets/images/usersIcon.png"
+import messageIcon from "../../assets/images/messageIcon.png";
 
 const Navbar = () => {
     return (

@@ -8,11 +8,15 @@ let initialState = {
 
     messages: [
         {
-            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque luctus, nisl eget sagittis egestas, lorem mi dictum augue, ut lacinia enim massa in metus. Fusce maximus vehicula augue",
+            fromOwner: false,
+            message: "Hello! This is my first message! How are you?",
+            avaUrl: null,
             id: 1
         },
         {
-            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque luctus, nisl eget sagittis egestas, lorem mi dictum augue, ut lacinia enim massa in metus. Fusce maximus vehicula augue,\n",
+            fromOwner: false,
+            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque luctus, nisl eget sagittis egestas, lorem mi dictum augue, ut lacinia enim massa in metus. Fusce maximus vehicula augue",
+            avaUrl: null,
             id: 2
         }
     ]
@@ -21,9 +25,10 @@ let initialState = {
 const dialogReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE :
-            let newMessage = {
+            const newMessage = {
+                fromOwner: true,
                 message: action.newDialogText,
-                likes: 0,
+                avaUrl: action.avaUrl,
                 id: state.messages.length + 1
             };
             return {
@@ -36,6 +41,6 @@ const dialogReducer = (state = initialState, action) => {
     }
 }
 
-export const addMessageAC = (newDialogText) => ({type: ADD_MESSAGE, newDialogText});
+export const addMessageAC = (newDialogText, avaUrl) => ({type: ADD_MESSAGE, newDialogText, avaUrl});
 
 export default dialogReducer;

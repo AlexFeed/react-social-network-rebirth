@@ -4,9 +4,13 @@ import {connect} from "react-redux";
 
 
 const mapStateToProps = state => {
+    let profilePhoto;
+    profilePhoto = state.profilePage.profile ? state.profilePage.profile.photos.small : '';
+
     return {
         postsData: state.profilePage.postsData,
-        newPostText: state.profilePage.newPostText
+        newPostText: state.profilePage.newPostText,
+        profilePhoto: profilePhoto
     }
 }
 

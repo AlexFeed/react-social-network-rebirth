@@ -1,17 +1,14 @@
 import s from "./Message.module.scss";
-import profileIcon from "../../common/images/defaultProfileIcon.png";
+import profileIcon from "../../../assets/images/defaultProfileIcon.png";
 
 const Message = (props) => {
     return (
-        <div className={s.messages__item}>
+        <article className={`${s.messages__item} ${props.fromOwner ? s.messages__fromOwner : ''}`}>
             <p className={s.messages__msg}>
                 {props.msg}
             </p>
-            <div className={s.messages__info}>
-                <img src={profileIcon} alt="profile icon" className={s.messages__img}/>
-                <span className={s.messages__name}>{props.name}</span>
-            </div>
-        </div>
+            <img src={props.fromOwner ? props.avaUrl : profileIcon} alt="profile icon" className={s.messages__img}/>
+        </article>
     )
 }
 

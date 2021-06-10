@@ -8,6 +8,7 @@ const mapStateToProps = (state) => {
     return ({
         dialogsData: state.dialogsPage.dialogsData,
         messages: state.dialogsPage.messages,
+        avaUrl: state.auth.photo
     })
 }
 

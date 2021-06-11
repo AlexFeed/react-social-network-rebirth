@@ -16,7 +16,7 @@ This is my biggest React\Redux project. I tried to make social network high-qual
 - Change profile photo
 - Change profile status
 - Page with all users and paginator
-- Follow/Unfollow on find user page
+- Follow/Unfollow on user page and redirect to their profiles
 - Local chat and local posts without requests to server
 
 ## Technologies

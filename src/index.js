@@ -8,7 +8,7 @@ import App from "./App";
 import {Provider} from "react-redux";
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename={"social-network"}>
         <Provider store={store}>
                 <App/>
         </Provider>

@@ -15,7 +15,7 @@ const ErrorWrap = styled.div`
 const LoginInput = withRequiredFormElement("input", ErrorWrap);
 const initialFormValues = {
     email: 'alexdevelopfrontend@gmail.com',
-    password: 'jklf23DKLFjh234ed'
+    password: 'h%uyNp9NhXi7%P'
 }
 
 const LoginForm = (props) => {
@@ -26,7 +26,7 @@ const LoginForm = (props) => {
                    placeholder="Email" type="text"
                    className={s.login__item}/>
             <Field validate={[required]}
-                   defaultValue={'jklf23DKLFjh234ed'}
+                   defaultValue={'h%uyNp9NhXi7%P'}
                    component={LoginInput} type="password"
                    name={"password"} placeholder="Password"
                    className={s.login__item}/>

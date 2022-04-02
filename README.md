@@ -1,6 +1,6 @@
 # Social Network created with React.js and Redux
 
-This is my biggest React\Redux project. I tried to make social network high-quality and beautiful, but there is still a lot to be done.
+This is my first React\Redux project. I tried to make social network high-quality and beautiful, but there is still a lot to be done.
 
 ## Start project
 

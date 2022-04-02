@@ -5,13 +5,16 @@ import Header from "./Header";
 
 const mapStateToProps = (state) => {
     let photo;
-    if( state.profilePage.profile) {
-        photo = state.profilePage.profile.photos.small;
+    if (state.auth.photo !== null) {
+       photo = state.auth.photo;
+    } else {
+        photo = null
     }
+
     return {
         isAuth: state.auth.isAuth,
         login: state.auth.login,
-        photo: photo || state.auth.photo
+        photo: photo
     }
 }
 

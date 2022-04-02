@@ -3,16 +3,16 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import store from "./Redux/redux-store";
 import ReactDOM from "react-dom";
-import {BrowserRouter} from "react-router-dom";
 import App from "./App";
 import {Provider} from "react-redux";
+import {HashRouter} from "react-router-dom";
 
 ReactDOM.render(
-    <BrowserRouter basename={"social-network"}>
+    <HashRouter>
         <Provider store={store}>
                 <App/>
         </Provider>
-    </BrowserRouter>,
+    </HashRouter>,
     document.getElementById('root')
 );
 
